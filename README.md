@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Security_service
 
 ## Spring Boot JWT Authentication & Authorization Service
@@ -48,3 +49,6 @@ Spring Security
 OAuth2 Resource Server
 
 JWT (JSON Web Token)
+=======
+# Security_service_dbUser
+>>>>>>> b18544c4cae6765e9b06576794e57ef5552ff6dc
