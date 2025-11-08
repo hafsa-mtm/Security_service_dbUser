@@ -1,54 +1,43 @@
-<<<<<<< HEAD
-# Security_service
+# Security Service with DB Users
 
-## Spring Boot JWT Authentication & Authorization Service
-### Description
-This project implements a custom authentication and authorization system using Spring Boot, Spring Security, and JWT.
+A Spring Boot service for authentication using JWT with users and roles stored in a database.
 
-It allows users to log in and receive Access and Refresh Tokens, which secure API access.
+## Features
+- JWT authentication (Access + Refresh tokens)
+- Users & roles in DB (`app_user`, `app_role`)
+- Encrypted passwords with BCrypt
+- Endpoints:
+  - `/login` → returns Access & Refresh token
+  - `/refresh` → returns new Access token using Refresh token
+- Security config:
+  - `/login` and `/refresh` are public
+  - Everything else is protected
 
-### Features
-User authentication with username & password
+## Testing
+- Login for user
+  
+  <img width="945" height="594" alt="image" src="https://github.com/user-attachments/assets/2b7946cb-e6cb-44d7-b775-27f74755c9da" />
+  
+- Login for admin
 
-JWT token generation (Access & Refresh)
+  <img width="945" height="627" alt="image" src="https://github.com/user-attachments/assets/e924d803-c702-46a4-926b-ad4defc62111" />
 
-RSA key signing for token security
+  - Response: Access & Refresh tokens
 
-Refresh token endpoint to renew access tokens
+- Refresh for user
+  
+  <img width="945" height="657" alt="image" src="https://github.com/user-attachments/assets/17a48456-f2f2-4528-8b09-c1a68bcffbf1" />
 
-### Endpoints
-Method	Endpoint	Description
+- Refresh for user
 
-POST	/login	Authenticates user and returns Access & Refresh tokens
+  <img width="945" height="583" alt="image" src="https://github.com/user-attachments/assets/23f391fc-9748-4bcb-9128-434cf07b0829" />
 
-POST	/refreshToken	Generates a new Access token using a valid Refresh token
+  - Response: new Access token
+    
+- Encrypted password in DB:
+  
+  <img width="945" height="251" alt="image" src="https://github.com/user-attachments/assets/8b33fde0-3a3a-474e-9461-a500f6edc785" />
 
-### Testing (Postman)
-#### Login Request
-
-URL: http://localhost:8083/login
-
-<img width="945" height="623" alt="image" src="https://github.com/user-attachments/assets/4c81632c-a688-4537-9e62-92aa3f8d48cb" />
-
-Result: Returns Access & Refresh tokens.
-
-#### Refresh Token Request
-
-URL: http://localhost:8080/refreshToken
-
-<img width="945" height="638" alt="image" src="https://github.com/user-attachments/assets/60ec31ea-70b6-40d2-a816-24f076630208" />
-
-Result: Returns a new Access token.
-
-### Dependencies
-
-Spring Boot
-
-Spring Security
-
-OAuth2 Resource Server
-
-JWT (JSON Web Token)
-=======
-# Security_service_dbUser
->>>>>>> b18544c4cae6765e9b06576794e57ef5552ff6dc
+## Notes
+- Passwords can be generated using [bcrypt-generator](https://bcrypt-generator.com)
+- Access token expires in 2 mins, Refresh in 15 mins
